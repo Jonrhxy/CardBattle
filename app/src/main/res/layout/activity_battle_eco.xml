@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/battleEcoRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@drawable/background1">
+
+    <!-- Round Counter at the very top center -->
+    <TextView
+        android:id="@+id/roundCounterText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Round: 1 / 15"
+        android:textSize="18sp"
+        android:textColor="@android:color/white"
+        android:shadowColor="#000000"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- AI Health Display at top left -->
+    <TextView
+        android:id="@+id/computerHealthText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Computer Health: 100"
+        android:textSize="18sp"
+        android:textColor="@android:color/white"
+        android:shadowColor="#000000"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="1"
+        app:layout_constraintTop_toBottomOf="@id/roundCounterText"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Player Health Display at bottom right -->
+    <TextView
+        android:id="@+id/playerHealthText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Player Health: 100"
+        android:textSize="18sp"
+        android:textColor="@android:color/white"
+        android:shadowColor="#000000"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Battle Log in the middle -->
+    <TextView
+        android:id="@+id/battleLogText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Battle log..."
+        android:textSize="16sp"
+        android:textColor="@android:color/white"
+        android:background="#88000000"
+        android:padding="8dp"
+        android:shadowColor="#000000"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="1"
+        app:layout_constraintTop_toBottomOf="@id/computerHealthText"
+        app:layout_constraintBottom_toTopOf="@id/playerHealthText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp" />
+
+    <!-- AI Section (Top Half) -->
+
+    <!-- AI Deck Preview (small deck image on left) -->
+    <ImageView
+        android:id="@+id/aiDeckPreview"
+        android:layout_width="60dp"
+        android:layout_height="90dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/placeholder_card"
+        app:layout_constraintTop_toBottomOf="@id/computerHealthText"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="16dp" />
+
+    <!-- AI Character Image (smaller circle: 60×60) -->
+
+    <!-- AI Drawn Card Target (enlarged 120×180) -->
+    <ImageView
+        android:id="@+id/aiCharacterImage"
+        android:layout_width="90dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="28dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/burger_boss"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@id/aiDeckPreview"
+        app:layout_constraintTop_toBottomOf="@id/computerHealthText" />
+
+    <ImageView
+        android:id="@+id/aiDrawnCard"
+        android:layout_width="160dp"
+        android:layout_height="220dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/placeholder_card"
+        android:visibility="invisible"
+        app:layout_constraintTop_toBottomOf="@id/computerHealthText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="30dp" />
+
+    <!-- Player Section (Bottom Half) -->
+
+    <!-- Player Deck Preview (small deck image on left) -->
+
+    <!-- Player Character Image (smaller circle: 60×60) -->
+
+    <!-- Player Drawn Card Target (enlarged 120×180) -->
+
+    <ImageView
+        android:id="@+id/playerDeckPreview"
+        android:layout_width="60dp"
+        android:layout_height="90dp"
+        android:layout_marginBottom="20dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/placeholder_card"
+        app:layout_constraintBottom_toTopOf="@id/playerHealthText"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/playerCharacterImage"
+        android:layout_width="90dp"
+        android:layout_height="120dp"
+        android:layout_marginBottom="28dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/main_character"
+        app:layout_constraintBottom_toTopOf="@id/playerHealthText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@id/playerDeckPreview" />
+
+    <ImageView
+        android:id="@+id/playerDrawnCard"
+        android:layout_width="160dp"
+        android:layout_height="220dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/placeholder_card"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@id/playerHealthText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="30dp" />
+
+    <!-- Draw Card Button (centered near the bottom) -->
+
+    <!-- Draw Card Button -->
+    <Button
+        android:id="@+id/playerDrawButton"
+        android:layout_width="102dp"
+        android:layout_height="49dp"
+        android:layout_marginBottom="224dp"
+        android:text="Draw Card"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/green_button"
+        android:backgroundTint="@null"
+        style="?android:attr/buttonStyleSmall"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
