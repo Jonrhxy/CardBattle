@@ -1,25 +1,31 @@
 package com.example.cardgame;
 
 public class BattleCard {
-    private String fact;
-    private int ecoPoints;       // +20 for green cards; -30 for red cards
-    private int frontImageResId; // Resource ID for the card's front image
+    private CardType type;
+    private int effectValue;   // For beneficial cards, positive; for damaging cards, positive (effect applied accordingly)
+    private String fact;       // Description of the card.
+    private int imageResId;    // Drawable resource ID for the card's front image.
 
-    public BattleCard(String fact, int ecoPoints, int frontImageResId) {
+    public BattleCard(CardType type, int effectValue, String fact, int imageResId) {
+        this.type = type;
+        this.effectValue = effectValue;
         this.fact = fact;
-        this.ecoPoints = ecoPoints;
-        this.frontImageResId = frontImageResId;
+        this.imageResId = imageResId;
+    }
+
+    public CardType getType() {
+        return type;
+    }
+
+    public int getEffectValue() {
+        return effectValue;
     }
 
     public String getFact() {
         return fact;
     }
 
-    public int getEcoPoints() {
-        return ecoPoints;
-    }
-
-    public int getFrontImageResId() {
-        return frontImageResId;
+    public int getImageResId() {
+        return imageResId;
     }
 }

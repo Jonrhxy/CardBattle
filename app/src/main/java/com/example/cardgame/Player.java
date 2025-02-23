@@ -7,7 +7,7 @@ import java.util.Random;
 public class Player {
     private String name;
     private int health;
-    private List<BattleCard> deck;
+    private List<BattleCard> deck;  // Reserve deck
 
     public Player(String name, int health) {
         this.name = name;
@@ -35,7 +35,7 @@ public class Player {
         deck.add(card);
     }
 
-    // Draws a random card from the deck.
+    // Draw a random card from the reserve deck (the card is not removed).
     public BattleCard drawRandomCard() {
         if (deck.isEmpty()) return null;
         Random random = new Random();
